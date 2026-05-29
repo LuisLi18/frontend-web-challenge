@@ -1,0 +1,126 @@
+.root {
+  width: 100%;
+  background: $color-bg-stepper;
+}
+
+.desktop {
+  display: none;
+
+  @include respond-to(desktop) {
+    @include container;
+
+    display: flex;
+    gap: $spacing-md;
+    align-items: center;
+    justify-content: center;
+    padding-top: $spacing-md;
+    padding-bottom: $spacing-md;
+  }
+}
+
+.item {
+  display: inline-flex;
+  gap: $spacing-sm;
+  align-items: center;
+}
+
+.bubble {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+  color: $color-text-muted;
+  background: transparent;
+  border: $border-width solid $color-text-muted;
+  border-radius: 50%;
+}
+
+.bubbleActive {
+  color: $color-text-inverse;
+  background: $color-step-active;
+  border-color: $color-step-active;
+}
+
+.label {
+  font-size: $font-size-base;
+  color: $color-text-muted;
+}
+
+.labelActive {
+  font-weight: $font-weight-bold;
+  color: $color-text-title;
+}
+
+.dots {
+  flex-shrink: 0;
+  width: 32px;
+  height: 4px;
+  background-image: radial-gradient(
+    circle,
+    $color-step-active 1px,
+    transparent 1.5px
+  );
+  background-repeat: repeat-x;
+  background-position: 0 center;
+  background-size: 8px 4px;
+}
+
+.mobile {
+  @include container;
+
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding-top: $spacing-md;
+  padding-bottom: $spacing-md;
+
+  @include respond-to(desktop) {
+    display: none;
+  }
+}
+
+.backBtn {
+  @include button-reset;
+  @include focus-ring;
+
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: $color-border-soft;
+  border: 2px solid $color-border-soft;
+  border-radius: 50%;
+}
+
+.backIcon {
+  width: 12px;
+  height: 12px;
+}
+
+.mobileLabel {
+  flex-shrink: 0;
+  font-size: 10px;
+  font-weight: $font-weight-black;
+  color: $color-text-title;
+}
+
+.bar {
+  flex: 1;
+  min-width: 0;
+  height: 4px;
+  overflow: hidden;
+  background: $color-border-soft;
+  border-radius: $radius-pill;
+}
+
+.barFill {
+  height: 100%;
+  background: $color-step-active;
+  border-radius: $radius-pill;
+  transition: width $transition-base;
+}

@@ -1,0 +1,31 @@
+.root {
+  width: 100%;
+  background: $color-text-title;
+}
+
+.inner {
+  @include container;
+
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-top: $spacing-xl;
+  padding-bottom: $spacing-xl;
+
+  @include respond-to(desktop) {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.logo {
+  width: 90px;
+  height: 30px;
+}
+
+.copy {
+  font-size: $font-size-sm;
+  color: rgba(255, 255, 255, 0.7);
+}

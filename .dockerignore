@@ -1,0 +1,37 @@
+# Dependencias y builds locales (la imagen los reconstruye limpios)
+node_modules
+dist
+coverage
+.vite
+.next
+.cache
+
+# Git y editores
+.git
+.gitignore
+.vscode
+.idea
+*.swp
+.DS_Store
+
+# Env locales (las vars se pasan via --build-arg o el host)
+.env
+.env.local
+.env.*.local
+
+# CI / deploy
+.vercel
+.github
+
+# Docs y misc
+README.md
+*.md
+!CLAUDE.md
+
+# Lo del propio Docker para evitar invalidar el cache si se editan
+Dockerfile
+.dockerignore
+
+# Test artifacts
+.nyc_output
+*.log

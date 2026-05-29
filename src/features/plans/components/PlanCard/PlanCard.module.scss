@@ -1,0 +1,145 @@
+.root {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  height: 100%; // estira al alto del grid row (align-items: stretch)
+  padding: 40px 32px 48px 32px;
+  background: $color-bg-card;
+  border-radius: $radius-card;
+  box-shadow: $shadow-card;
+
+  @include respond-to(desktop) {
+    width: 288px;
+    height: 687px;
+    padding: 68px 32px 48px 32px;
+  }
+}
+
+.badge {
+  width: 122px;
+  height: 20px;
+  position: absolute;
+  top: 12px;
+  left: 32px;
+  padding: 2px 8px;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-black;
+  color: $color-text-title;
+  background: $color-accent;
+  border-radius: 4px;
+  @include respond-to(desktop) {
+    top: 42px;
+    left: 32px;
+  }
+}
+
+.header {
+  display: flex;
+  gap: $spacing-md;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-black;
+  color: $color-text-title;
+}
+
+.icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+}
+
+.priceBlock {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xxs;
+}
+
+.priceLabel {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-black;
+  color: $color-text-muted;
+}
+
+.priceOld {
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+}
+
+.priceFinal {
+  font-size: 20px;
+  font-weight: $font-weight-black;
+  color: $color-text-title;
+}
+
+.divider {
+  height: 1px;
+  background: $color-border-soft;
+  border: 0;
+}
+
+.features {
+  display: flex;
+  flex: 1; // consume el espacio sobrante → empuja el botón al fondo
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.feature {
+  position: relative;
+  padding-left: $spacing-md;
+  font-size: $font-size-base;
+  color: $color-text-body;
+
+  &::before {
+    position: absolute;
+    top: 0.6em;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    content: '';
+    background: $color-text-title;
+    border-radius: 50%;
+  }
+}
+
+// Icon mobile-only: en desktop se oculta y queda el bullet dot original.
+.featureIcon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 6px;
+
+  @include respond-to(desktop) {
+    display: none;
+  }
+}
+
+.featureText {
+  flex: 1;
+  min-width: 0;
+}
+
+// En mobile, el icon reemplaza al bullet → `.feature` pasa a layout flex
+// y se neutraliza el ::before y su padding. Desktop queda intacto.
+@media (max-width: 767px) {
+  .feature {
+    display: flex;
+    gap: $spacing-sm;
+    align-items: flex-start;
+    padding-left: 0;
+
+    &::before {
+      display: none;
+    }
+  }
+}
+
+.selectButton {
+  height: 48px;
+}

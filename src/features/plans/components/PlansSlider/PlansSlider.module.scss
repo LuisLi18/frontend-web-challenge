@@ -1,0 +1,51 @@
+.root {
+  width: 100%;
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  gap: $spacing-md; // 16px — debe coincidir con GAP_PX en PlansSlider.tsx
+  transition: transform 300ms ease;
+
+  > * {
+    flex: 0 0 88%; // debe coincidir con SLIDE_PERCENT en PlansSlider.tsx
+    min-width: 0;
+  }
+}
+
+.controls {
+  display: flex;
+  gap: $spacing-md;
+  align-items: center;
+  justify-content: center;
+  margin-top: 68px;
+}
+
+.arrow {
+  @include button-reset;
+  @include focus-ring;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: $color-step-active;
+  border: 2px solid $color-step-active;
+  border-radius: 50%;
+
+  &:disabled {
+    color: $color-border-soft;
+    border-color: $color-border-soft;
+  }
+}
+
+.arrowNext {
+  /* visual hint via icon path */
+}
+
+.counter {
+  font-size: $font-size-base;
+  color: $color-text-title;
+}

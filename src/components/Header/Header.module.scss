@@ -1,0 +1,68 @@
+.root {
+  width: 100%;
+  background: $color-bg-page;
+  font-family: $font-family-base-alt;
+}
+
+.inner {
+  @include container;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: $header-height-mobile;
+
+  @include respond-to(desktop) {
+    height: $header-height-desktop;
+  }
+}
+
+.logoLink {
+  display: inline-flex;
+}
+
+.logo {
+  width: 74px;
+  height: auto;
+  user-select: none;
+
+  @include respond-to(desktop) {
+    width: 73.19px;
+    height: 36px;
+  }
+}
+
+.contact {
+  display: flex;
+  gap: $spacing-md;
+  align-items: center;
+}
+
+.tagline {
+  display: none;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  color: $color-text-title-alt;
+
+  @include respond-to(desktop) {
+    display: inline;
+  }
+}
+
+.phone {
+  display: inline-flex;
+  gap: $spacing-xs;
+  align-items: center;
+  font-size: $font-size-md;
+  font-weight: $font-weight-bold;
+  color: $color-text-title-alt;
+
+  @include respond-to(desktop) {
+    font-size: $font-size-md;
+  }
+}
+
+.phoneIcon {
+  width: 20px;
+  height: 20px;
+}

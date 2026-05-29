@@ -1,0 +1,68 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-xs;
+  padding: $spacing-md $spacing-xl;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  font-weight: $font-weight-bold;
+  line-height: 1;
+  color: $color-text-inverse;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  border-radius: $radius-pill;
+  transition: background-color $transition-base, transform $transition-base,
+    box-shadow $transition-base;
+
+  @include focus-ring;
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+.primary {
+  background: $color-primary;
+
+  &:hover:not(:disabled) {
+    background: $color-primary-hover;
+  }
+
+  &:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+}
+
+.secondary {
+  background: $color-text-title;
+
+  &:hover:not(:disabled) {
+    background: #14163f;
+  }
+}
+
+.ghost {
+  color: $color-text-title;
+  background: transparent;
+
+  &:hover:not(:disabled) {
+    background: rgba(3, 5, 46, 0.04);
+  }
+}
+
+.md {
+  padding: $spacing-sm $spacing-xl;
+  font-size: $font-size-base;
+}
+
+.lg {
+  padding: $spacing-md $spacing-2xl;
+  font-size: $font-size-md;
+}
+
+.fullWidth {
+  width: 100%;
+}

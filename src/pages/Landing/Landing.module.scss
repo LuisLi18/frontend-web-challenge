@@ -1,0 +1,200 @@
+.layout {
+  background: $color-bg-page;
+}
+
+.hero {
+  padding-bottom: $spacing-4xl;
+
+  @include respond-to(desktop) {
+    padding-top: $spacing-xl;
+  }
+}
+
+.heroInner {
+  @include container;
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    'title image'
+    'divider divider'
+    'subtitle subtitle'
+    'form form';
+  column-gap: $spacing-md;
+
+  @include respond-to(desktop) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      'image title'
+      'image subtitle'
+      'image form';
+    column-gap: 128px;
+  }
+}
+
+.titleRow {
+  grid-area: title;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  justify-content: center;
+
+  @include respond-to(desktop) {
+    width: 352px;
+    align-items: flex-start;
+  }
+}
+
+.imageWrap {
+  grid-area: image;
+  width: 144px;
+
+  @include respond-to(desktop) {
+    width: 480px;
+  }
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 172px;
+  height: 24px;
+  padding: $spacing-xxs $spacing-xs;
+  font-family: $font-family-base-alt;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+  color: $color-text-title-alt;
+  background: $gradient-flexible;
+  border-radius: 4px;
+}
+
+.title {
+  font-family: $font-family-base-alt;
+  font-size: 24px;
+  font-weight: $font-weight-bold;
+  color: $color-text-title-alt;
+
+  @include respond-to(desktop) {
+    font-size: $font-size-xl;
+    height: 80px;
+    line-height: 40px;
+  }
+}
+
+.divider {
+  grid-area: divider;
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin-top: $spacing-lg; // separación del bloque title+image en mobile
+  background: $color-border-soft;
+  border: 0;
+
+  @include respond-to(desktop) {
+    display: none;
+  }
+}
+
+.subtitle {
+  grid-area: subtitle;
+  margin-top: $spacing-xs;
+  font-family: $font-family-base-alt;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-text-title-alt;
+
+  @include respond-to(desktop) {
+    width: 352px;
+    height: 40px;
+  }
+}
+
+.form {
+  grid-area: form;
+  display: flex;
+  flex-direction: column;
+  width: 351px;
+  max-width: 100%;
+  margin-top: $spacing-lg;
+  font-family: $font-family-base-alt;
+  color: $color-text-body-alt;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md; // 16px entre inputs
+}
+
+.docSelect {
+  width: 152px;
+}
+
+.checkboxes {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  margin-top: $spacing-lg; // 24px desde el último input
+  font-size: $font-size-xs;
+  color: $color-text-terms;
+}
+
+.terms {
+  margin-top: $spacing-sm; // 12px desde los checkboxes
+  font-size: $font-size-xs;
+  font-weight: $font-weight-bold;
+  color: $color-text-terms;
+  text-decoration: underline;
+}
+
+.submitError {
+  margin-top: $spacing-sm;
+  padding: $spacing-sm $spacing-md;
+  font-size: $font-size-sm;
+  color: $color-error;
+  background: rgba(239, 51, 64, 0.08);
+  border-radius: $radius-input;
+}
+
+.submitBtn {
+  width: 336px;
+  max-width: 100%;
+  height: 56px;
+  margin-top: $spacing-lg; // 24px desde términos (o submitError)
+
+  @include respond-to(desktop) {
+    width: 195px;
+    height: 64px;
+  }
+}
+
+// ============================================================================
+// Tablet only (768-1023px)
+// En este rango el viewport es ancho pero los estilos mobile se aplican:
+//   - imagen 144px queda diminuta
+//   - form 351px deja un hueco enorme a la derecha
+//   - divider/subtitle full-width se estiran sin balance
+// Estos overrides están scoped con max-width para NO afectar desktop (>=1024)
+// ni mobile (<768). El bloque queda centrado a 560px en tablet.
+// ============================================================================
+@media (min-width: 768px) and (max-width: 1023px) {
+  .heroInner {
+    max-width: 560px; // contiene el bloque y evita estiramiento
+  }
+
+  .imageWrap {
+    width: 200px; // imagen proporcionada al contenedor reducido
+  }
+
+  .form,
+  .subtitle {
+    justify-self: center; // centra horizontalmente en su grid row
+  }
+}

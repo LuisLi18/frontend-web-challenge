@@ -1,0 +1,116 @@
+.container {
+  @include container;
+
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+  padding-top: $spacing-lg;
+  padding-bottom: $spacing-2xl;
+
+  @include respond-to(desktop) {
+    gap: $spacing-xl;
+    padding-top: $spacing-xl;
+  }
+}
+
+// El BackLink del contenido solo se muestra en desktop. En mobile el back
+// vive dentro del Stepper (inline con "PASO X DE Y").
+.backDesktopOnly {
+  display: none;
+
+  @include respond-to(desktop) {
+    display: inline-flex;
+  }
+}
+
+.headline {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  align-items: flex-start;
+  text-align: left;
+
+  @include respond-to(desktop) {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.title {
+  max-width: 580px;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-black;
+  line-height: $line-height-tight;
+  color: $color-text-title;
+  letter-spacing: $letter-spacing-tight;
+
+  @include respond-to(desktop) {
+    font-size: $font-size-2xl;
+  }
+}
+
+.subtitle {
+  font-size: $font-size-base;
+  color: $color-text-body;
+}
+
+.targets {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+
+  @include respond-to(tablet) {
+    grid-template-columns: repeat(2, minmax(0, 280px));
+    justify-content: center;
+  }
+}
+
+.plansSection {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+  margin-top: $spacing-md;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+
+  @include respond-to(tablet) {
+    grid-template-columns: repeat(2, minmax(0, 285px));
+    justify-content: center;
+  }
+
+  @include respond-to(desktop) {
+    grid-template-columns: repeat(3, minmax(0, 285px));
+    justify-content: center;
+    gap: $spacing-lg;
+    align-items: stretch; // todas las cards mismo alto
+  }
+}
+
+.slide {
+  display: flex;
+  width: 100%;
+  padding-right: $spacing-md;
+  padding-left: $spacing-md;
+}
+
+.statusCenter {
+  display: flex;
+  gap: $spacing-sm;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-xl;
+  color: $color-text-body;
+}
+
+.statusError {
+  padding: $spacing-sm $spacing-md;
+  font-size: $font-size-sm;
+  color: $color-error;
+  text-align: center;
+  background: rgba(239, 51, 64, 0.08);
+  border-radius: $radius-input;
+}

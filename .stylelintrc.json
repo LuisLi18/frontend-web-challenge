@@ -1,0 +1,9 @@
+{
+  "extends": ["stylelint-config-standard-scss"],
+  "rules": {
+    "selector-class-pattern": null,
+    "no-descending-specificity": null,
+    "scss/at-use-no-unnamespaced": null,
+    "scss/load-no-partial-leading-underscore": null
+  }
+}
