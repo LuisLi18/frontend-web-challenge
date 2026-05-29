@@ -2,7 +2,7 @@
 
 App de cotización de seguro de salud para Rimac. Reto técnico **Frontend Web 2026** — Chapter Frontend.
 
-🔗 **Demo en producción**: _pendiente de URL de Vercel_
+🔗 **Demo en producción**: project-89s2g.vercel.app
 
 ---
 
